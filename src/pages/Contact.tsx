@@ -17,27 +17,16 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyt9BhZdR0jmUfNTLSaE-Taa2F-ZYHtdbMi6G6ooLylCipmU5e072xVm4sIC4EkQ0CKdg/exec'; // Google Apps Script web app URL
-
     try {
-      const response = await fetch(scriptURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Thanks for your message! I\'ll get back to you soon.');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        alert('Oops! Something went wrong. Please try again later.');
-        console.error('Error submitting form: ', response.statusText);
-      }
+      await addDoc(collection(db, "contactMessages"), formData);
+      alert('Thanks for your message! I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Oops! Something went wrong. Please try again later.');
