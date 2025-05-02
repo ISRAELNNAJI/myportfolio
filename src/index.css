@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple-accent: #9b59b6;
+  --blue-accent: #3498db;
+  --red-accent: #e74c3c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-text-primary font-poppins overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-purple-accent/30 text-white;
+  }
+}
+
+@layer components {
+  .gradient-border::before {
+    @apply absolute content-[''] inset-0 p-[2px] rounded-lg;
+    background: linear-gradient(to right, var(--purple-accent), var(--blue-accent), var(--red-accent));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .btn-glow {
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 rounded-lg shadow-md;
+  }
+
+  .btn-glow::before {
+    @apply absolute inset-0 w-full h-full;
+    content: '';
+    background: linear-gradient(
+      to right,
+      var(--purple-accent),
+      var(--blue-accent),
+      var(--red-accent),
+      var(--purple-accent)
+    );
+    background-size: 400% 400%;
+    animation: gradient-animation 8s ease infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .btn-glow:hover::before {
+    opacity: 1;
+  }
+
+  .btn-glow span {
+    @apply relative z-10;
+  }
+
+  .card-service {
+    @apply relative p-6 rounded-xl bg-dark-secondary transition-all duration-300 overflow-hidden hover:shadow-glow;
+  }
+
+  .card-service::before {
+    @apply absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300;
+    content: '';
+    background: linear-gradient(135deg, var(--purple-accent) 0%, var(--blue-accent) 100%);
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .card-service:hover::before {
+    opacity: 0.05;
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--purple-accent), var(--blue-accent), var(--red-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: textGradient 8s linear infinite;
+}
+
+@keyframes textGradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Form styles */
+input, textarea {
+  @apply w-full p-3 bg-dark-secondary border border-gray-700 rounded-lg outline-none transition duration-300;
+}
+
+input:focus, textarea:focus {
+  @apply border-purple-accent shadow-glow;
+}
+
+.blob-shape {
+  clip-path: polygon(
+    50% 0%, 80% 10%, 100% 40%, 90% 80%, 60% 100%, 30% 90%, 10% 60%, 20% 20%
+  );
+}

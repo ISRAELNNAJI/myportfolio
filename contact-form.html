@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Form with Animation</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .fade-in-left {
+      animation: fadeInLeft 0.7s ease forwards;
+    }
+    .fade-in-right {
+      animation: fadeInRight 0.7s ease forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-7xl mx-auto px-6 sm:px-16 relative z-10 w-full">
+    <h2 class="text-center text-3xl font-bold mb-4">Get In Touch</h2>
+    <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto">Have a project in mind? Let's discuss how we can work together.</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="bg-gray-800 p-8 rounded-xl shadow-lg fade-in-left">
+        <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+        <form id="contactForm" class="space-y-6">
+          <div>
+            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
+              <!-- User icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Your Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Doe"
+              required
+              class="w-full rounded border border-gray-600 bg-gray-900 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
+              <!-- Mail icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m0 0l4-4m-4 4l4 4" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Your Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="john@example.com"
+              required
+              class="w-full rounded border border-gray-600 bg-gray-900 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
+              <!-- Message icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h6m-6 4h10" />
+              </svg>
+              Your Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Tell me about your project..."
+              required
+              class="w-full rounded border border-gray-600 bg-gray-900 px-3 py-2 text-white resize-none focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded transition-colors"
+          >
+            <!-- Send icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+      <div class="flex flex-col justify-between fade-in-right">
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-xl font-medium mb-2 text-gradient">Email</h4>
+              <p class="text-gray-400">
+                <a href="mailto:nnajiisrael4@gmail.com" class="hover:text-purple-400 transition-colors">
+                  nnajiisrael4@gmail.com
+                </a>
+              </p>
+            </div>
+            <div>
+              <h4 class="text-xl font-medium mb-2 text-gradient">WhatsApp</h4>
+              <p class="text-gray-400">
+                <a href="https://wa.me/2347045857168" class="hover:text-blue-400 transition-colors">
+                  +234 704 5857168
+                </a>
+              </p>
+            </div>
+            <div>
+              <h4 class="text-xl font-medium mb-2 text-gradient">Office Hours</h4>
+              <p class="text-gray-400">Monday - Friday, 9AM - 5PM EST</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 rounded-xl overflow-hidden">
+          <h4 class="text-xl font-medium mb-1 text-gradient">Location</h4>
+          <p class="text-gray-400 mb-4">Ibadan, Nigeria</p>
+          <p class="text-gray-400 mb-6 text-sm">The capital of Oyo State, known for its rich history and culture.</p>
+          <div class="h-64 w-full bg-gray-900 relative rounded-xl overflow-hidden">
+            <iframe
+              title="Ibadan Nigeria Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.027073927927!2d3.886530314769091!3d7.377535394631503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b0a1a0a1b%3A0x123456789abcdef!2sIbadan%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1687000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen="false"
+              loading="lazy"
+              class="rounded-xl"
+            ></iframe>
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-blue-400/10 to-red-400/10 opacity-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Input Field with Specific ID</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for input with specific ID */
+    #form-input-3c6944d9 {
+      width: 100%;
+      border-radius: 0.5rem; /* rounded */
+      border: 1px solid #4B5563; /* border-gray-600 */
+      background-color: #1F2937; /* bg-gray-900 */
+      padding: 0.5rem 0.75rem; /* px-3 py-2 */
+      color: white;
+      outline: none;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    #form-input-3c6944d9:focus {
+      border-color: transparent;
+      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5); /* focus:ring-purple-400 */
+    }
+    label[for="form-input-3c6944d9"] {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; /* gap-2 */
+      font-size: 0.875rem; /* text-sm */
+      font-weight: 500; /* font-medium */
+      margin-bottom: 0.5rem; /* mb-2 */
+      color: #D1D5DB; /* text-gray-300 or similar */
+    }
+    label[for="form-input-3c6944d9"] svg {
+      height: 1rem; /* h-4 */
+      width: 1rem; /* w-4 */
+      color: #A78BFA; /* text-purple-400 */
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-6">
+  <div class="bg-gray-800 p-8 rounded-xl shadow-lg max-w-md w-full">
+    <form class="space-y-6">
+      <div>
+        <label for="form-input-3c6944d9" class="flex items-center gap-2 text-sm font-medium mb-2">
+          <!-- User icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Your Name
+        </label>
+        <input
+          type="text"
+          id="form-input-3c6944d9"
+          name="name"
+          placeholder="John Doe"
+          required
+        />
+      </div>
+    </form>
+  </div>
+</body>
+</html>
